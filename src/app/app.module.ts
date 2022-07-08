@@ -1,10 +1,15 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RedditModule } from './reddit/reddit.module';
 import { UtilsModule } from './utils/utils.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {  MatToolbarModule } from '@angular/material/toolbar';
+import {MatIconModule} from '@angular/material/icon'; 
+import {MatSidenavModule} from '@angular/material/sidenav'; 
+import { BrowserModule, HammerModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+
 
 @NgModule({
   declarations: [
@@ -14,9 +19,14 @@ import { UtilsModule } from './utils/utils.module';
     BrowserModule,
     AppRoutingModule,
     RedditModule,
-    UtilsModule
+    UtilsModule,
+    BrowserAnimationsModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatSidenavModule,
+    HammerModule
   ],
-  providers: [],
+  providers: [ ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
