@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { RedditRoutingModule } from './reddit-routing.module';
 import { HomeComponent } from './components/home/home.component';
+import { UtilsModule } from '../utils/utils.module';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { HomeComponent } from './components/home/home.component';
   ],
   imports: [
     CommonModule,
-    RedditRoutingModule
+    RedditRoutingModule,
+    UtilsModule
   ],
   exports:[HomeComponent]
 })

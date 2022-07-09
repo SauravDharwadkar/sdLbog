@@ -1,2 +1,29 @@
-<p>home works!</p>
-<router-outlet></router-outlet>
+
+
+<div   class=" scroll-smooth hover:scroll-auto" (scroll)="scrollHandler($event)" style="overflow-y: scroll;">
+    <div class="scroll-view grid place-items-center h-screen" > 
+      
+    
+    <ul class="grid-col-1"   >
+        
+        <li *ngFor="let item of filterdData;" class="p-2"  >
+          
+            <div  class="containder border-2 border-sky-500 w-max p-4"  >
+             
+                <h2 class="font-large leading-tight text-2xl mt-0 mb-2 text-blue-600 "  style="width: 70vw;">{{item.title}}</h2>
+       
+                    <p *ngIf="item.type==0"  style="width: 70vw;overflow:auto ;">{{item.text}}</p>
+              
+                  <img src="{{item.url}}" alt="Loading" class="p-2" *ngIf="item.type==1" >
+    
+                
+              <app-video-player [item]="item" *ngIf="item.type==2" ></app-video-player>
+                  
+          </div>
+        </li>
+        
+      </ul>
+     </div>  
+    
+      
+    </div>

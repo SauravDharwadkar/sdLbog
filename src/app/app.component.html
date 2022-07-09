@@ -5,7 +5,7 @@
 <mat-drawer-container class="main-container"  (swipe)="onSwipe($event)">
     
     <mat-drawer #drawer class="main-sidenav" mode="side"> 
-        <div class="w-100 bg-red-400 h-60">
+        <div class="w-full h-60 bg-red-400">
 
         </div>
     </mat-drawer>
@@ -14,9 +14,9 @@
             <button mat-icon-button class="menu" aria-label="icon-button with menu icon" (click)="drawer.toggle()">
               <mat-icon>menu</mat-icon>
             </button>
-            <span class="ml-5">My App</span>
+            <span class="ml-5">Meme</span>
             <span class="menu-spacer"></span>
-            <button mat-icon-button class=" favorite-icon" aria-label="icon-button with heart icon">
+            <button mat-icon-button class="favorite-icon" aria-label="icon-button with heart icon">
               <mat-icon>favorite</mat-icon>
             </button>
             <button mat-icon-button class="" aria-label="Example icon-button with share icon">
@@ -27,7 +27,7 @@
    
  
 
-    <div class="p-2">
+    <div class="p-2 w-full h-full" >
 
 
     <router-outlet></router-outlet>
