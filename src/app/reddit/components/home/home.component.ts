@@ -1,4 +1,5 @@
 import { Component, HostListener, Input, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { filterdDataModel } from '../../models/filtered.model';
 import { HttpHandlerService } from '../../services/http-handler.service';
 
@@ -18,21 +19,33 @@ export class HomeComponent implements OnInit {
   count = 0;
   updatecount = 0;
   after: string[] = [];
+  contentType: any;
 
-  constructor(private httpHandler: HttpHandlerService) { 
+  constructor(private httpHandler: HttpHandlerService,private route: ActivatedRoute) { 
+    this.route.params.subscribe((param)=>{
+      
+      this.subreddit=param['sub']
+      this.contentType=param['type']
+      console.log(this.contentType,this.subreddit)
+      this.httpHandler.subtitle.next(this.subreddit)
+      this.filterdData=[]
+      this.count =0
+      this.updatecount=0
+      this.getNewData()
+    })
     this.getNewData() 
   }
 
   getNewData() {
-    console.log("got http functuionm")
-    console.log(this.filterdData);
+    //console.log("got http functuionm")
+    //console.log(this.filterdData);
     if (this.count == this.updatecount) {
       this.count++;
       this.httpHandler
-        .getJsonReddit(this.subreddit,"hot",this.after[this.after.length - 1])
+        .getJsonReddit(this.subreddit,this.contentType,this.after[this.after.length - 1])
         .subscribe((resp) => {
           //this.dataStreamer?.push(resp);
-
+          
           for (let item of resp.data.children) {
             //  console.log(item.data.url)
             if (this.regexpImg.test(item.data.url)) {
@@ -71,8 +84,9 @@ export class HomeComponent implements OnInit {
             }
           }
           this.after.push(resp.data.after);
-          console.log(this.after, resp.data.after);
+          console.log(this.after, resp);
           this.updatecount++;
+         
         });
     }
   }

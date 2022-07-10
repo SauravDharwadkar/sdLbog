@@ -1,12 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
 import { redditDataModel } from '../models/reddit.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HttpHandlerService {
-
+ public subtitle=new BehaviorSubject("meme")
   constructor(private http:HttpClient) { }
   public getJsonReddit(comunity:string="meme",type:string="hot",after:string){
    

@@ -1,12 +1,48 @@
-
-  
-
-  
 <mat-drawer-container class="main-container"  (swipe)="onSwipe($event)">
     
     <mat-drawer #drawer class="main-sidenav" mode="side"> 
-        <div class="w-full h-60 bg-red-400">
+        <div class="w-full h-60 bg-red-400 inline-block p-0 align-bottom pl-4">
+          <br>
+          <br>
+          <span class="font-medium leading-tight text-3xl mt-0 mb-2 pt-2 ">SD Lbog </span><br>
+          <span class="font-medium leading-tight text-base mt-0 mb-2">simple by default</span><br>
+          <span class="font-medium leading-tight text-base mt-0 mb-2">powerfull when needed</span><br><br>
+          <span class="font-medium leading-tight text-base mt-0 mb-2">powered by :</span> <br>
+          <span class="font-medium leading-tight text-red-200 text-sm mt-0 mb-2 ml-10"> angular , angular-mat , tailwindcss ,cordova </span><br><br>
+          <a href="https://github.com/sauravdharwadkar/sdLbog" class="inline">
+            <div class="col-auto">
+                <div class="row-auto flex">
+                    <span class="font-medium leading-tight text-base mt-0 mb-2">dev : </span><br><span class="font-medium leading-tight text-red-200 text-sm mt-0 mb-2 ml-5 mt-2">Saurav Dharwadkar </span><img class="ml-2" src="/assets/github.svg" style="height: 2rem;">
+              </div>
+                
+          </div> </a>
+        </div>
+        <div class="catagory-list">
+          <mat-accordion class="example-headers-align" >
+            <mat-expansion-panel *ngFor="let subs of catagory" hideToggle>
 
+               <mat-expansion-panel-header >
+                <mat-panel-title class="panel-title" style="font-size: 1.2em;">
+                  {{subs}}
+                </mat-panel-title>
+                <mat-panel-description>
+                  
+                  <!-- <mat-icon>account_circle</mat-icon> -->
+                </mat-panel-description>
+              </mat-expansion-panel-header> 
+                <ul style="font-size: 0.9em;">
+                  <a class="text-sky-400 " routerLink="/reddit/{{catData.data.sub}}/{{catData.data.defaultCat}}"   *ngFor="let catData of filterdData">
+                  <div class="m-1 " style="background-color: #454535;">
+                  <li  *ngIf="catData.catagory==subs">
+{{catData.data.name}}
+              </li></div></a>
+              </ul>
+            </mat-expansion-panel>
+       
+          
+            
+             
+          </mat-accordion>
         </div>
     </mat-drawer>
     <mat-drawer-content>
@@ -14,7 +50,7 @@
             <button mat-icon-button class="menu" aria-label="icon-button with menu icon" (click)="drawer.toggle()">
               <mat-icon>menu</mat-icon>
             </button>
-            <span class="ml-5">Meme</span>
+            <span class="ml-5 text-cyan-300">{{title}} :</span> <span class="ml-5 text-green-200"> {{subTitle}} </span>
             <span class="menu-spacer"></span>
             <button mat-icon-button class="favorite-icon" aria-label="icon-button with heart icon">
               <mat-icon>favorite</mat-icon>

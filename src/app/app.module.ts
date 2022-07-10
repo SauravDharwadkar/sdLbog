@@ -9,7 +9,7 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import { BrowserModule, HammerGestureConfig, HammerModule, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-
+import {MatExpansionModule} from '@angular/material/expansion'; 
 import * as Hammer from 'hammerjs';
 
 export class HammerConfig extends HammerGestureConfig {
@@ -42,7 +42,8 @@ export class HammerConfig extends HammerGestureConfig {
     MatToolbarModule,
     MatIconModule,
     MatSidenavModule,
-    HammerModule
+    HammerModule,
+    MatExpansionModule
   ],
   providers: [ { 
     provide: HAMMER_GESTURE_CONFIG, 

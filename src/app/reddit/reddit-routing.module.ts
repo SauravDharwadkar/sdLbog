@@ -4,15 +4,11 @@ import { VideoPlayerComponent } from '../utils/components/video-player/video-pla
 import { HomeComponent } from './components/home/home.component';
 
 
-const routes: Routes = [
-{path:"reddit",component:HomeComponent,children:[{
-  path:"reddit",component:HomeComponent,
-
-}
-
+const routes: Routes = 
+[
+{path:"reddit/:sub/:type",component:HomeComponent}
 ]
-}
-];
+
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

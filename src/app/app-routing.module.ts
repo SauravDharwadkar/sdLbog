@@ -4,7 +4,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { RedditModule } from './reddit/reddit.module';
 
 const routes: Routes = [
-  { path: '',   redirectTo: '/reddit', pathMatch: 'full' }, 
+  { path: '',   redirectTo: '/reddit/meme/hot', pathMatch: 'full' }, 
+ // {path:"**",redirectTo: '/reddit/meme/hot'}
 ];
 
 @NgModule({
